@@ -1,53 +1,78 @@
-# Next.js & HeroUI Template
+# Next.js & ShadCN Dashboard
+[https://ui.shadcn.com/view/sidebar-03](Link)
+> [!TIP]
+> by default it have not toggle dark/light in dashboard bt shadcn therefore, repo enable dark/light toogle with shadcn-dashboard-starter
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+## Project Information
+`nextjs v15`
+`App Router (Folder Based)`
+`@ Alias (disabled)`
+`turbopack enabled`
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+## Packages Info
+`tailwindcss v3`
+`shadcn UI`
 
-## Technologies Used
+## How To Use
+1. Clone the Repo
+   ```bash
+   git clone https://github.com/quddus-larik/shadcn-dashboard-starter
+   ```
+2. Install Dependencies
+   ```bash
+   npm install
+   ```
+3. Run
+   ```bash
+   npm run dev
+   ```
+## Project Overview
+* Layout CoreUI named in `layouts` folder Parant comonents `app/layouts/core-ui.tsx`
+* You can use it 👇
+  ```tsx
+  import { CoreUI } from "../layouts/core-ui";
+  export default function Page(){
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+  return(
+    <CoreUI>
+      <div className="w-full h-full bg-green-200">{/* Your Code */ }</div>
+    </CoreUI>
+   )
+  }
+  ```
+* Theme Provider is developed in `providers.tsx` file `app/provider.tsx`
+  ```tsx
+  "use client";
 
-## How to Use
+  import type { ThemeProviderProps } from "next-themes";
 
-### Use the template with create-next-app
+  import * as React from "react";
+  import { useRouter } from "next/navigation";
+  import { ThemeProvider } from "./providers/theme-provider";
 
-To create a new project based on this template using `create-next-app`, run the following command:
 
-```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
-```
 
-### Install dependencies
+  export interface ProvidersProps {
+    children: React.ReactNode;
+    themeProps?: ThemeProviderProps;
+   }
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+  declare module "@react-types/shared" {
+    interface RouterConfig {
+      routerOptions: NonNullable<
+        Parameters<ReturnType<typeof useRouter>["push"]>[1]
+      >;
+    }
+  }
 
-```bash
-npm install
-```
+  export function Providers({ children, themeProps }: ProvidersProps) {
+    const router = useRouter();
 
-### Run the development server
+    return (
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>{children}</ThemeProvider>
+    );
+  }
 
-```bash
-npm run dev
-```
+  ```
 
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
+  
