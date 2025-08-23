@@ -14,8 +14,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "kodeic",
-  description: "Ai Based Github Booster",
+  title: "Dashboard UI",
+  description: "A tamplate for ShadcnUI",
 };
 
 export default function RootLayout({
