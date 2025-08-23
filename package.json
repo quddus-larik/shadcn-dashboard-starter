@@ -1,17 +1,16 @@
 {
   "name": "kodeic",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "description": "This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).",
   "license": "ISC",
-  "author": "",
+  "author": "quddus-larik",
   "main": "next.config.js",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --fix",
-    "generate:mysql": "prisma generate --schema=prisma/schema.mysql.prisma"
+    "lint": "eslint --fix"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
