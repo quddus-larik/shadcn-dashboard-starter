@@ -1,11 +1,14 @@
+"use client"
+export default function Page() {
 
-export default async function Page() {
 
-  
-  
+
   return (
-    <main className="bg-slate-50">
-     <h1>"hi"</h1>
-    </main>
+    <>
+    <div className="bg-slate-50">
+      <h1>hi go to dashboard</h1> 
+      <a href="/dashboard">Dashboard</a>
+    </div>
+    </>
   );
 }
