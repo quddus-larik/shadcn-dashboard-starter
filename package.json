@@ -2,7 +2,7 @@
   "name": "kodeic",
   "version": "0.0.1",
   "private": false,
-  "description": "This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).",
+  "description": "This is a template for creating applications using Next.js 14 (app directory) and ShadcnUI (v2).",
   "license": "ISC",
   "author": "quddus-larik",
   "main": "next.config.js",
