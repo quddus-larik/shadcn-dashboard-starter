@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Moon, Sun } from "lucide-react"
 import { useEffect, useState } from "react"
 
-export function ModeToggle({ className }) {
+export function ModeToggle({ className }: { className: string }) {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
